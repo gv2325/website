@@ -10,6 +10,7 @@ import { Toaster } from "sonner";
 import DraftModeToast from "@/app/components/DraftModeToast";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
+import { Navbar2 } from "@/app/components/Navbar2";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
@@ -62,8 +63,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
-      <body className="font-gambarino">
-        <section className="min-h-screen pt-24">
+      <body>
+        <section className="min-h-screen pt-0">
           <Toaster />
           {isDraftMode && (
             <>
@@ -71,10 +72,9 @@ export default async function RootLayout({
               <VisualEditing />
             </>
           )}
-          <SanityLive onError={handleError} />
-          <Header />
+            <SanityLive onError={handleError} />
+            <Navbar2 className="font-switzerBlod" />
           <main className="">{children}</main>
-          <Footer />
         </section>
         <SpeedInsights />
       </body>
