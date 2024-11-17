@@ -10,7 +10,7 @@ import { Toaster } from "sonner";
 
 import DraftModeToast from "@/app/components/DraftModeToast";
 import Footer from "@/app/components/Footer";
-import Header from "@/app/components/Header";
+import { Header1 } from "@/app/components/Header1";
 import { Navbar2 } from "@/app/components/Navbar2";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
@@ -75,7 +75,8 @@ export default async function RootLayout({
           )}
             <SanityLive onError={handleError} />
             <Navbar2 className="font-switzerBlod" />
-          <main className="">{children}</main>
+            <Header1 />
+          <main className=""></main>
         </section>
         <SpeedInsights />
         <Analytics/>

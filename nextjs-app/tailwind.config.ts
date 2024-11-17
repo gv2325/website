@@ -100,11 +100,6 @@ export default {
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
-        gambarino: ['Gambarino-Regular', 'sans-serif'],
-        switzerReg: ['Switzer-Regular', 'sans'],
-        switzerMed: ['Switzer-Medium', 'sans'],
-        switzerSbold: ['Switzer-Semibold', 'sans'],
-        switzerBold: ['Switzer-Bold', 'sans'],
       },
     },
   },

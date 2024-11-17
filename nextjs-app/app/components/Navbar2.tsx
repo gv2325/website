@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
@@ -39,48 +39,21 @@ export const Navbar2 = (props: Navbar2Props) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      window.EBWidgets.createWidget({
-        widgetType: "checkout",
-        eventId: "1079303528909",
-        modal: true,
-        modalTriggerElementId: "eventbrite-widget-modal-trigger-1079303528909",
-        onOrderComplete: () => {
-          console.log("Order complete!");
-        },
-      });
-    };
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <nav className="flex w-full items-center bg-[#E9E4DD] text-[#2E090D] lg:min-h-18 lg:px-[5%]">
       <div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4">
         <div className="flex min-h-16 items-center justify-center px-[5%] md:min-h-16 lg:min-h-full lg:px-0">
-          <a href={logo.url}>
-            <Image src={logoTxt.src} alt={logo.alt || "Logo"} width={logoTxt.width} height={logoTxt.height} style={{ width: "auto", height: "auto" }} />
-          </a>
-          {!isMobile && (
-            <>
-              <div className="px-0.5"></div> {/* Added padding between images */}
-              <a href={logo.url}>
-                <Image src={logo.src} alt={logo.alt || "Logo"} width={logo.width} height={logo.height} style={{ width: "auto", height: "auto" }} />
-              </a>
-            </>
-          )}
+            <a href={logo.url} className="hidden lg:block">
+            <Image src={logoTxt.src} alt={logo.alt || "Logo"} width={logoTxt.width} height={logoTxt.height} style={{ width: "auto", height: "auto" }}/>
+            </a>
+          <div className="px-0.5"></div> {/* Added padding between images */}
+            <a href={logo.url} className="px-[5%]">
+            <Image src={logo.src} alt={logo.alt || "Logo"} width={logo.width} height={logo.height} style={{ width: "auto", height: "auto" }}/>
+            </a>
           <div className="flex items-center gap-4 lg:hidden">
             <div className="md:min-h-1">
               {buttons.map((button, index) => (
-                <Button key={index} className="w-full px-2 py-1" style={{ backgroundColor: '#781E26', width: "auto", height: "auto" }} {...button}>
+                <Button key={index} className="w-full px-2 py-1" style={{ backgroundColor: '#781E26',  width: "auto", height: "auto" }} {...button}>
                   {button.title}
                 </Button>
               ))}
@@ -107,62 +80,120 @@ export const Navbar2 = (props: Navbar2Props) => {
             </button>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <noscript>
-            <a href="https://www.eventbrite.com/e/techbrew-tickets-1079303528909" rel="noopener noreferrer" target="_blank">
-              Buy Tickets on Eventbrite
-            </a>
-          </noscript>
-          <button id="eventbrite-widget-modal-trigger-1079303528909" type="button" className="w-full px-4 py-1" style={{ backgroundColor: '#781E26' }}>
-            Buy Tickets
-          </button>
+        <motion.div
+          variants={{
+            open: {
+              height: "var(--height-open, 100dvh)",
+            },
+            close: {
+              height: "var(--height-closed, 0)",
+            },
+          }}
+          animate={isMobileMenuOpen ? "open" : "close"}
+          initial="close"
+          exit="close"
+          transition={{ duration: 0.4 }}
+          className="font-semibold text-[#781E26] overflow-hidden px-[5%] text-center lg:flex lg:items-center lg:justify-center lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto]"
+        >
+          {navLinks.map((navLink, index) => (
+            <div key={index} className="first:pt-4 lg:first:pt-0">
+              {navLink.subMenuLinks && navLink.subMenuLinks.length > 0 ? (
+          <SubMenu navLink={navLink} isMobile={isMobile} />
+              ) : (
+          <a href={navLink.url} className="block py-3 text-md lg:px-4 lg:py-2 lg:text-base">
+            {navLink.title}
+          </a>
+              )}
+            </div>
+          ))}
+        </motion.div>
+        <div className="hidden justify-self-end lg:block">
+          {buttons.map((button, index) => (
+            <Button key={index} className="px-6 py-2 font-gambarino" style={{ backgroundColor: '#781E26' }} {...button}>
+              {button.title}
+            </Button>
+          ))}
         </div>
       </div>
-      <div className="flex items-center gap-4">
-        {navLinks.map((navLink, index) => (
-          <div key={index}>
-            <a href={navLink.url} className="font-switzerSemibold">{navLink.title}</a>
-            {navLink.subMenuLinks && (
-              <AnimatePresence>
-                <motion.nav
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="bg-background-primary lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
-                >
-                  {navLink.subMenuLinks.map((subMenuLink, index) => (
-                    <a
-                      key={index}
-                      href={subMenuLink.url}
-                      className="block py-3 text-center lg:px-4 lg:py-2 lg:text-left font-switzerSemibold"
-                    >
-                      {subMenuLink.title}
-                    </a>
-                  ))}
-                </motion.nav>
-              </AnimatePresence>
-            )}
-          </div>
-        ))}
-      </div>
+    </nav>
+  );
+};
+
+const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean }) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  return (
+    <nav
+      onMouseEnter={() => !isMobile && setIsDropdownOpen(true)}
+      onMouseLeave={() => !isMobile && setIsDropdownOpen(false)}
+    >
+      <button
+        className="flex w-full items-center justify-center gap-4 py-3 text-center text-md lg:w-auto lg:flex-none lg:justify-start lg:gap-2 lg:px-4 lg:py-2 lg:text-base"
+        onClick={() => setIsDropdownOpen((prev) => !prev)}
+      >
+        <span>{navLink.title}</span>
+        <motion.span
+          animate={isDropdownOpen ? "rotated" : "initial"}
+          variants={{
+            rotated: { rotate: 180 },
+            initial: { rotate: 0 },
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <RxChevronDown />
+        </motion.span>
+      </button>
+      {isDropdownOpen && (
+        <AnimatePresence>
+          <motion.nav
+            animate={isDropdownOpen ? "open" : "close"}
+            initial="close"
+            exit="close"
+            variants={{
+              open: {
+                visibility: "visible",
+                opacity: "var(--opacity-open, 100%)",
+                y: 0,
+              },
+              close: {
+                visibility: "hidden",
+                opacity: "var(--opacity-close, 0)",
+                y: "var(--y-close, 0%)",
+              },
+            }}
+            transition={{ duration: 0.2 }}
+            className="bg-[#E9E4DD] lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
+          >
+            {navLink.subMenuLinks?.map((subMenuLink, index) => (
+              <a
+                key={index}
+                href={subMenuLink.url}
+                className="block py-3 text-center lg:px-4 lg:py-2 lg:text-left"
+              >
+                {subMenuLink.title}
+              </a>
+            ))}
+          </motion.nav>
+        </AnimatePresence>
+      )}
     </nav>
   );
 };
 
 export const Navbar2Defaults: Navbar2Props = {
   logoTxt: {
-    url: "#",
+    url: "/",
     src: "/assets/assets-27.png",
-    alt: "Logo image",
+    alt: "Text Logo",
     width: 48,
     height: 48,
   },
   logo: {
-    url: "#",
+    url: "/",
     src: "/assets/assets-29.png",
-    alt: "Logo image",
-    width: 163,
-    height: 72,
+    alt: "Text Logo",
+    width: 160,
+    height: 48,
   },
   navLinks: [
     { title: "Agenda", url: "#" },
