@@ -62,7 +62,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
-      <body>
+      <body className="font-gambarino">
         <section className="min-h-screen pt-24">
           <Toaster />
           {isDraftMode && (
