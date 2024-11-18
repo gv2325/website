@@ -4,6 +4,7 @@ import type { ButtonProps } from "@relume_io/relume-ui";
 import Image from 'next/image';
 
 type ImageProps = {
+  url?: string;
   src: string;
   alt?: string;
   width?: number;
@@ -28,7 +29,8 @@ export const Header1Defaults: Header1Props = {
     { title: 'Get Tickets' },
   ],
   image: {
-    src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg',
+    url: "/",
+    src: '/assets/assets-01.png',
     alt: 'Conference Image',
     width: 100,
     height: 100,
@@ -49,7 +51,7 @@ export const Header1 = (props: Header1Props) => {
   } as Props;
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className="px-[5%] py-8 md:py-24 lg:py-28">
       <div className="container">
         <div className="grid grid-cols-1 gap-x-20 gap-y-12 md:gap-y-16 lg:grid-cols-2 lg:items-center">
           <div>
@@ -84,7 +86,7 @@ export const Header1 = (props: Header1Props) => {
             </div>
           </div>
           <div>
-          <Image src={image.src} alt={image.alt || "Logo"} width={image.width} height={image.height} style={{ width: "auto", height: "auto" }}/>
+            <Image src={image.src} alt={image.alt || "Logo"} width={image.width} height={image.height} layout="responsive" />
           </div>
         </div>
       </div>
