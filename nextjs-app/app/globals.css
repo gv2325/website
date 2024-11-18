@@ -44,3 +44,28 @@ h3 {
      font-family: '/public/fonts/Switzer-Semibold.ttf', serif;
      color: #2E090D;
 }
+
+h5 {
+     font-family: '@/public/fonts/Switzer-Semibold.ttf';
+     font-size: 10;
+     font-weight: 400;
+     text-align: left;
+     text-decoration-skip-ink: none;
+     color: #781E26;
+}
+
+.image-container {
+     position: relative;
+     width: 100%;
+     height: 300px; /* Adjust the height as needed */
+     overflow: hidden;
+   }
+
+.image-container img {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+   }

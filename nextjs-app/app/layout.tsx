@@ -9,14 +9,17 @@ import { VisualEditing, toPlainText } from "next-sanity";
 import { Toaster } from "sonner";
 
 import DraftModeToast from "@/app/components/DraftModeToast";
-import Footer from "@/app/components/Footer";
-import { Header1 } from "@/app/components/Header1";
 import { Navbar2 } from "@/app/components/Navbar2";
+import { Footer1 } from "./components/Footer1";
+import { Header1 } from "@/app/components/Header1";
+import { Layout484 } from "./components/Layout484";
+import { Layout47 } from "./components/Layout47";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
 import { handleError } from "./client-utils";
+import Footer from "./components/Footer";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data: settings } = await sanityFetch({
@@ -74,10 +77,13 @@ export default async function RootLayout({
             </>
           )}
             <SanityLive onError={handleError} />
-            <Navbar2 className="font-switzerBlod" />
+            <Navbar2 />
             <Header1 />
+            <Layout484 />
+            <Layout47 />
           <main className=""></main>
         </section>
+        <Footer1 />
         <SpeedInsights />
         <Analytics/>
       </body>
