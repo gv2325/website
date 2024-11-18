@@ -78,10 +78,7 @@ export default async function RootLayout({
           )}
             <SanityLive onError={handleError} />
             <Navbar2 />
-            <Header1 />
-            <Layout484 />
-            <Layout47 />
-          <main className=""></main>
+          <main className="">{children}</main>
         </section>
         <Footer1 />
         <SpeedInsights />

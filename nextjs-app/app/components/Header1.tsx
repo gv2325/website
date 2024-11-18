@@ -32,8 +32,8 @@ export const Header1Defaults: Header1Props = {
     url: "/",
     src: '/assets/assets-01.png',
     alt: 'Conference Image',
-    width: 100,
-    height: 100,
+    width: 800,
+    height: 800,
   },
 };
 
@@ -51,14 +51,14 @@ export const Header1 = (props: Header1Props) => {
   } as Props;
 
   return (
-    <section id="relume" className="px-[5%] py-8 md:py-24 lg:py-28">
+    <section id="relume" className="px-[5%] py-4 md:py-24 lg:py-28">
       <div className="container">
         <div className="grid grid-cols-1 gap-x-20 gap-y-12 md:gap-y-16 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="mb-5 text-6xl md:mb-6 md:text-9xl lg:text-10xl tagline">{tagline}</p>
+            <div className="w-560 h-360">
+            <p className="headline mb-5 md:mb-6">{tagline}</p>
             <h1 className="mb-5 text-6xl md:mb-6 md:text-9xl lg:text-10xl">{heading}</h1>
-            <p className="md:text-md">{description}</p>
-            <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
+            <p className="headline">{description}</p>
+            <div className="headline mt-6 flex flex-wrap gap-4 md:mt-8">
               <IconText
                 icon={
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#781E26" className="size-4 inline-block">
@@ -85,9 +85,9 @@ export const Header1 = (props: Header1Props) => {
               ))}
             </div>
           </div>
-          <div>
-            <Image src={image.src} alt={image.alt || "Logo"} width={image.width} height={image.height} layout="responsive" />
-          </div>
+            <div>
+            <Image src={image.src} alt={image.alt || "Logo"} width={image.width} height={image.height} style={{ width: '100%', height: 'auto' }} />
+            </div>
         </div>
       </div>
     </section>

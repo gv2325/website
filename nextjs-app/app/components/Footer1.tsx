@@ -10,11 +10,14 @@ import {
   BiLogoYoutube,
 } from "react-icons/bi";
 import { useState } from "react";
+import Image from "next/image";
 
 type ImageProps = {
   url?: string;
   src: string;
   alt?: string;
+  width?: number;
+  height?: number;
 };
 
 type Links = {
@@ -72,30 +75,13 @@ export const Footer1 = (props: Footer1Props) => {
   return (
     <footer className="px-[5%] py-12 md:py-18 lg:py-20">
       <div className="container">
-        <div className="grid grid-cols-1 gap-x-[8vw] gap-y-12 pb-12 md:gap-y-16 md:pb-18 lg:grid-cols-[0.75fr_1fr] lg:gap-y-4 lg:pb-20">
-          <div className="flex flex-col">
+        <div className="grid grid-cols-1 gap-x-[24vw] gap-y-12 pb-12 md:gap-y-16 md:pb-18 lg:grid-cols-[0.75fr_1fr] lg:gap-y-4 lg:pb-20">
+            <div className="flex flex-col">
             <a href={logo.url} className="mb-5 md:mb-6">
-              <img src={logo.src} alt={logo.alt} className="inline-block" />
+              <Image src={logo.src} alt={logo.alt || "Logo"} className="inline-block" width={logo.width} height={logo.height} style={{ width: "auto", height: "auto" }}/>
             </a>
-            <p className="mb-5 md:mb-6">{newsletterDescription}</p>
-            <div className="w-full max-w-md">
-              <form
-                className="mb-3 grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-[1fr_max-content] md:gap-y-4"
-                onSubmit={handleSubmit}
-              >
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder={inputPlaceholder}
-                  value={emailInput}
-                  onChange={(e) => setEmailInput(e.target.value)}
-                />
-                <Button {...button}>{button.title}</Button>
-              </form>
-              <div dangerouslySetInnerHTML={{ __html: termsAndConditions }} />
-            </div>
           </div>
-          <div className="grid grid-cols-1 items-start gap-y-10 sm:grid-cols-3 sm:gap-x-6 md:gap-x-8 md:gap-y-4">
+          <div className="grid grid-cols-1 items-start gap-y-10 sm:grid-cols-2 sm:gap-x-6 md:gap-x-8 md:gap-y-4">
             {columnLinks.map((column, index) => (
               <div key={index} className="flex flex-col items-start justify-start">
                 <h2 className="mb-3 font-semibold md:mb-4">{column.title}</h2>
@@ -115,8 +101,8 @@ export const Footer1 = (props: Footer1Props) => {
         </div>
         <div className="h-px w-full bg-black" />
         <div className="flex flex-col-reverse items-start justify-between pb-4 pt-6 text-sm md:flex-row md:items-center md:pb-0 md:pt-8">
-          <p className="mt-6 md:mt-0">{footerText}</p>
-          <ul className="grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
+          <h1 className="mt-6 md:mt-0">{footerText}</h1>
+          <ul className="grid grid-flow-row grid-cols-[max-content] justify-center gap-y-2 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
             {footerLinks.map((link, index) => (
               <li key={index} className="underline">
                 <a href={link.url}>{link.title}</a>
@@ -132,42 +118,33 @@ export const Footer1 = (props: Footer1Props) => {
 export const Footer1Defaults: Footer1Props = {
   logo: {
     url: "#",
-    src: "https://d22po4pjz3o32e.cloudfront.net/logo-image.svg",
+    src: "/assets/assets-29.png",
     alt: "Logo image",
+    width: 163,
+    height: 72,
   },
-  newsletterDescription: "Join our newsletter to stay up to date on features and releases.",
+  newsletterDescription: "Join our newsletter to stay up to date.",
   inputPlaceholder: "Enter your email",
   button: {
     title: "Subscribe",
-    variant: "secondary",
     size: "sm",
   },
   termsAndConditions: `
   <p class='text-xs'>
     By subscribing you agree to with our
     <a href='#' class='underline'>Privacy Policy</a>
-    and provide consent to receive updates from our company.
+    and provide consent to receive updates from our Organization.
   </p>
   `,
   columnLinks: [
     {
-      title: "Column One",
+      title: "Menu",
       links: [
-        { title: "Link One", url: "#" },
-        { title: "Link Two", url: "#" },
-        { title: "Link Three", url: "#" },
-        { title: "Link Four", url: "#" },
-        { title: "Link Five", url: "#" },
-      ],
-    },
-    {
-      title: "Column Two",
-      links: [
-        { title: "Link Six", url: "#" },
-        { title: "Link Seven", url: "#" },
-        { title: "Link Eight", url: "#" },
-        { title: "Link Nine", url: "#" },
-        { title: "Link Ten", url: "#" },
+        { title: "Home", url: "#" },
+        { title: "Agenda", url: "#" },
+        { title: "Blog", url: "#" },
+        { title: "Team", url: "#" },
+        { title: "Contact Us", url: "/contact" },
       ],
     },
     {
@@ -175,16 +152,12 @@ export const Footer1Defaults: Footer1Props = {
       links: [
         { title: "Facebook", url: "#", icon: <BiLogoFacebookCircle className="size-6" /> },
         { title: "Instagram", url: "#", icon: <BiLogoInstagram className="size-6" /> },
-        { title: "X", url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
-        { title: "LinkedIn", url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
         { title: "Youtube", url: "#", icon: <BiLogoYoutube className="size-6" /> },
       ],
     },
   ],
-  footerText: "© 2024 Relume. All rights reserved.",
+  footerText: "© 2024 India Harvard Conference. All rights reserved.",
   footerLinks: [
-    { title: "Privacy Policy", url: "#" },
-    { title: "Terms of Service", url: "#" },
-    { title: "Cookies Settings", url: "#" },
+    // { title: "Privacy Policy", url: "#" },
   ],
 };

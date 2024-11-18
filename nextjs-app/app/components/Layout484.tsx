@@ -34,7 +34,7 @@ export const Layout484 = (props: Layout484Props) => {
     <section id="relume" className="overflow-hidden px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container max-w-xl">
         <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-        <h5 ref={headingRef} className="text-5xl font-bold md:text-7xl lg:text-8xl">
+        <h5 ref={headingRef} className="text-5xl md:text-7xl lg:text-8xl">
           {words.map((word, index) => {
             const start = index * 0.015;
             const end = start + 0.025;
