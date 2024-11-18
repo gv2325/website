@@ -55,10 +55,10 @@ export const Header1 = (props: Header1Props) => {
       <div className="container">
         <div className="grid grid-cols-1 gap-x-20 gap-y-12 md:gap-y-16 lg:grid-cols-2 lg:items-center">
             <div className="w-560 h-360">
-            <p className="headline mb-5 md:mb-6">{tagline}</p>
-            <h1 className="mb-5 text-6xl md:mb-6 md:text-9xl lg:text-10xl">{heading}</h1>
-            <p className="headline">{description}</p>
-            <div className="headline mt-6 flex flex-wrap gap-4 md:mt-8">
+            <p className="subheading1 mb-2 md:mb-2">{tagline}</p>
+            <h1 className="mb-5 text-6xl md:mb-1 md:text-9xl lg:text-10xl">{heading}</h1>
+            <p className="subheading1 md:mb-6">{description}</p>
+            <div className="subheading2 mt-6 flex flex-wrap gap-4 md:mt-8">
               <IconText
                 icon={
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#781E26" className="size-4 inline-block">

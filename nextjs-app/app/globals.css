@@ -60,11 +60,20 @@ h1, h2 {
      object-fit: cover;
    }
 
-.headline {
+.subheading1 {
      font-family: 'Switzer', sans-serif;
      font-size: 32px;
      font-weight: 600;
-     line-height: 41.6px;
+     line-height: 42px;
+     text-align: left;
+     color: #781E26;
+}
+
+.subheading2 {
+     font-family: 'Switzer', sans-serif;
+     font-size: 16px;
+     font-weight: 500;
+     line-height: 24px;
      text-align: left;
      color: #781E26;
 }
