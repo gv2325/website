@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
-import type { ButtonProps } from "@relume_io/relume-ui";
+import type { ButtonProps as RelumeButtonProps } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronDown } from "react-icons/rx";
 import Image from "next/image";
+
+type ButtonProps = RelumeButtonProps & {
+  url?: string;
+};
 
 type ImageProps = {
   url?: string;
@@ -54,7 +58,7 @@ export const Navbar2 = (props: Navbar2Props) => {
             <div className="md:min-h-1">
               {buttons.map((button, index) => (
                 <Button key={index} className="w-full px-2 py-1" style={{ backgroundColor: '#781E26',  width: "auto", height: "auto" }} {...button}>
-                  {button.title}
+                  <a href={button.url || 'https://www.eventbrite.com/e/india-conference-at-harvard-2025-tickets-1078672762269'}>{button.title}</a>
                 </Button>
               ))}
             </div>
@@ -110,7 +114,7 @@ export const Navbar2 = (props: Navbar2Props) => {
         <div className="hidden justify-self-end lg:block">
           {buttons.map((button, index) => (
             <Button key={index} className="px-6 py-2 font-gambarino" style={{ backgroundColor: '#781E26' }} {...button}>
-              {button.title}
+              <a href={button.url || 'https://www.eventbrite.com/e/india-conference-at-harvard-2025-tickets-1078672762269'}>{button.title}</a>
             </Button>
           ))}
         </div>

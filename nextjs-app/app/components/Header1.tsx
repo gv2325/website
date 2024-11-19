@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button } from "@relume_io/relume-ui";
-import type { ButtonProps } from "@relume_io/relume-ui";
+import type { ButtonProps as RelumeButtonProps } from "@relume_io/relume-ui";
 import Image from 'next/image';
+
 
 type ImageProps = {
   url?: string;
@@ -9,6 +10,10 @@ type ImageProps = {
   alt?: string;
   width?: number;
   height?: number;
+};
+
+type ButtonProps = RelumeButtonProps & {
+  url?: string;
 };
 
 type Props = {
@@ -26,7 +31,7 @@ export const Header1Defaults: Header1Props = {
   tagline: 'Announcing the 22nd edition of',
   description: 'at Harvard',
   buttons: [
-    { title: 'Get Tickets' },
+    { title: 'Get Tickets'},
   ],
   image: {
     url: "/",
@@ -79,9 +84,9 @@ export const Header1 = (props: Header1Props) => {
             </div>
             <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
             {buttons.map((button, index) => (
-                <Button key={index} className="w-78 px-5 py-2" style={{ backgroundColor: '#781E26' }} {...button}>
-                  {button.title}
-                </Button>
+              <Button key={index} className="w-78 px-5 py-2" style={{ backgroundColor: '#781E26' }} {...button}>
+                <a href={button.url || 'https://www.eventbrite.com/e/india-conference-at-harvard-2025-tickets-1078672762269'}>{button.title}</a>
+              </Button>
               ))}
             </div>
           </div>

@@ -84,10 +84,10 @@ export const Footer1 = (props: Footer1Props) => {
           <div className="grid grid-cols-1 items-start gap-y-10 sm:grid-cols-2 sm:gap-x-6 md:gap-x-8 md:gap-y-4">
             {columnLinks.map((column, index) => (
               <div key={index} className="flex flex-col items-start justify-start">
-                <h2 className="mb-3 font-semibold md:mb-4">{column.title}</h2>
+                <h2 className="subheading3 mb-3 font-semibold md:mb-4">{column.title}</h2>
                 <ul>
                   {column.links.map((link, linkIndex) => (
-                    <li key={linkIndex} className="py-2 text-sm">
+                    <li key={linkIndex} className="site-map py-2 text-sm">
                       <a href={link.url} className="flex items-center gap-3">
                         {link.icon && <span>{link.icon}</span>}
                         <span>{link.title}</span>
@@ -99,9 +99,9 @@ export const Footer1 = (props: Footer1Props) => {
             ))}
           </div>
         </div>
-        <div className="h-px w-full bg-black" />
+        <div className="h-px w-full bg-[#2E090D]" />
         <div className="flex flex-col-reverse items-start justify-between pb-4 pt-6 text-sm md:flex-row md:items-center md:pb-0 md:pt-8">
-          <h1 className="mt-6 md:mt-0">{footerText}</h1>
+          <h1 className="super-script mt-6 md:mt-0">{footerText}</h1>
           <ul className="grid grid-flow-row grid-cols-[max-content] justify-center gap-y-2 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
             {footerLinks.map((link, index) => (
               <li key={index} className="underline">

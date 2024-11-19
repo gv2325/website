@@ -7,6 +7,7 @@ import { Footer1 } from "@/app/components/Footer1";
 import { Header1 } from "@/app/components/Header1";
 import { Layout484 } from "@/app/components/Layout484";
 import { Layout3 } from "@/app/components/Layout3";
+import { Stats1 } from "@/app/components/Stats1";
 import { AllPosts } from "@/app/components/Posts";
 
 export default function Page() {
@@ -15,6 +16,7 @@ export default function Page() {
       <Header1 />
       <Layout484 />
       <Layout3 />
+      <Stats1 />
     </div>
   );
 }
