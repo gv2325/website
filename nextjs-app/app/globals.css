@@ -60,6 +60,22 @@
           text-align: left;
           color: #781E26;
      }
+     .subheading4 {
+          font-family: 'Switzer', sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 16px;
+          text-align: left;
+          color: #781E26;
+     }
+     .subheading5 {
+          font-family: 'Switzer', sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 16px;
+          text-align: left;
+          color: #393637;
+     }
      .body-large {
           font-family: 'Switzer', sans-serif;
           font-size: 12;
@@ -158,6 +174,22 @@
           line-height: 16px;
           text-align: left;
           color: #781E26;
+     }
+     .subheading4 {
+          font-family: 'Switzer', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 24px;
+          text-align: left;
+          color: #781E26;
+     }
+     .subheading5 {
+          font-family: 'Switzer', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 24px;
+          text-align: left;
+          color: #393637;
      }
      .body-large {
           font-family: 'Switzer', sans-serif;
