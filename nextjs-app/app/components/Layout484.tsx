@@ -31,10 +31,9 @@ export const Layout484 = (props: Layout484Props) => {
   const words = heading.split(" ");
 
   return (
-    <section id="relume" className="overflow-hidden px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className="overflow-hidden px-[5%] py-8 md:py-16 lg:py-16">
       <div className="container max-w-xl">
-        <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-        <h5 ref={headingRef} className="text-5xl md:text-7xl lg:text-8xl">
+        <p ref={headingRef} className="subheading1">
           {words.map((word, index) => {
             const start = index * 0.015;
             const end = start + 0.025;
@@ -48,7 +47,7 @@ export const Layout484 = (props: Layout484Props) => {
               </React.Fragment>
             );
           })}
-        </h5>
+        </p>
         <div className="mt-2 flex flex-wrap items-center gap-4 md:mt-8">
           {buttons.map((button, index) => (
             <Button key={index} {...button}>

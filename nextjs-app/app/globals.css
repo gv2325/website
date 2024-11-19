@@ -2,46 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (max-width: 640px) {
+     .navbar {
+          font-family: 'Switzer', sans-serif;
+          color: #2E090D;
+          font-size: 16px;
+          line-height: 24px;
+          background-color: #E9E4DD;
+     }
+     .heading1 {
+          font-family: 'Gambarino', serif;
+          font-size: 42px;
+          font-weight: 400;
+          line-height: 42px;
+          margin-bottom: 10px;
+          text-align: left;
+          color: #781E26;
+     }
+     .subheading1 {
+          font-family: 'Switzer', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 24px;
+          text-align: left;
+          color: #781E26;
+     }
+     .subheading2 {
+          font-family: 'Switzer', sans-serif;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 16px;
+          text-align: left;
+          color: #781E26;
+     }
+     .subheading3 {
+          font-family: 'Switzer', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 16px;
+          text-align: left;
+          color: #781E26;
+     }
+}
+
+@media (min-width: 641px) {
+     .navbar {
+          font-family: 'Switzer', sans-serif;
+          color: #2E090D;
+          font-size: 16px;
+          line-height: 24px;
+          background-color: #E9E4DD;
+     }
+     .heading1 {
+          font-family: 'Gambarino', serif;
+          font-size: 78px;
+          font-weight: 400;
+          line-height: 86px;
+          text-align: left;
+          color: #781E26;
+     }
+     .h1 {
+          font-family: 'Gambarino', serif;
+          font-size: 78px;
+          font-weight: 400;
+          line-height: 86px;
+          text-align: left;
+          color: #781E26;
+     }
+     .subheading1 {
+          font-family: 'Switzer', sans-serif;
+          font-size: 28px;
+          font-weight: 600;
+          line-height: 42px;
+          text-align: left;
+          color: #781E26;
+     }
+     .subheading2 {
+          font-family: 'Switzer', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 42px;
+          text-align: left;
+          color: #781E26;
+     }
+     .subheading3 {
+          font-family: 'Switzer', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 16px;
+          text-align: left;
+          color: #781E26;
+     }
+}
 
 html, body {
      background-color: #E9E4DD;
 }
 
-.navbar-background {
-     background-color: #E9E4DD;
-}
-
-.navbar-text-color {
-     color: #781E26;
-}
-
-.navheading {
-     font-family: 'Switzer-Semibold';
-     color: #2E090D;
-     font-size: 16px;
-}
-
-.font-switzerSemibold {
-     font-family: 'Switzer-Semibold', sans-serif;
-   }
-
-h1, h2 {
-     font-family: 'Gambarino', serif;
-     color: #781E26;
-}
-
-.h3 {
-     font-family: '//public/fonts/Switzer-Semibold.ttf', serif;
-     color: #2E090D;
-}
-
-.h5 {
-     font-family: '@//public/fonts/Switzer-Semibold.ttf';
-     font-size: 10;
-     font-weight: 400;
-     text-align: left;
-     text-decoration-skip-ink: none;
-     color: #781E26;
+.container1 {
+     position: relative;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 800px;
+     object-fit: cover;
 }
 
 .image-container {
@@ -59,33 +123,6 @@ h1, h2 {
      height: 100%;
      object-fit: cover;
    }
-
-.subheading1 {
-     font-family: 'Switzer', sans-serif;
-     font-size: 32px;
-     font-weight: 600;
-     line-height: 42px;
-     text-align: left;
-     color: #781E26;
-}
-
-.subheading2 {
-     font-family: 'Switzer', sans-serif;
-     font-size: 16px;
-     font-weight: 500;
-     line-height: 24px;
-     text-align: left;
-     color: #781E26;
-}
-
-.header {
-     font-family: 'Gambarino';
-     font-size: 72px;
-     font-weight: 400;
-     line-height: 86.4px;
-     text-align: left;
-}
-
 /**
 * @license
 *

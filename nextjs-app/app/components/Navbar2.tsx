@@ -40,17 +40,17 @@ export const Navbar2 = (props: Navbar2Props) => {
   const isMobile = useMediaQuery("(max-width: 991px)");
 
   return (
-    <nav className="flex w-full items-center bg-[#E9E4DD] text-[#2E090D] lg:min-h-18 lg:px-[5%]">
+    <nav className="navbar flex w-full items-center bg-[#E9E4DD] text-[#2E090D] lg:min-h-18 lg:px-[5%]">
       <div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4">
         <div className="flex min-h-16 items-center justify-center px-[5%] md:min-h-16 lg:min-h-full lg:px-0">
             <a href={logo.url} className="hidden lg:block">
             <Image src={logoTxt.src} alt={logo.alt || "Logo"} width={logoTxt.width} height={logoTxt.height} style={{ width: "auto", height: "auto" }}/>
             </a>
           <div className="px-0.5"></div> {/* Added padding between images */}
-            <a href={logo.url} className="px-[5%]">
+            <a href={logo.url} className="pr-[5%]">
             <Image src={logo.src} alt={logo.alt || "Logo"} width={logo.width} height={logo.height} style={{ width: "auto", height: "auto" }}/>
             </a>
-          <div className="flex items-center gap-4 lg:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <div className="md:min-h-1">
               {buttons.map((button, index) => (
                 <Button key={index} className="w-full px-2 py-1" style={{ backgroundColor: '#781E26',  width: "auto", height: "auto" }} {...button}>
